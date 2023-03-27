@@ -33,7 +33,7 @@ function Banner() {
             <i className="fa-solid fa-play " style={{ color: "#000000" }}></i>Play
           </button>
           <button className="banner__button">
-            <i className="fa-solid fa-plus" style={{ color: "#ffffff" }}></i>My List
+            <i className="fa-solid fa-plus" style={{ color: "#ffffff" }}></i>More Info
           </button>
         </div>
         <p className="banner__description">{truncate(movie?.overview, 200)}</p>

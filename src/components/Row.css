@@ -1,15 +1,16 @@
 .row {
     position: relative;
-    margin-top: -5rem;
-    margin-bottom: 4.5rem;
+    margin-top: -4rem;
+    margin-bottom: 6.5rem;
     padding-left: 2.5rem;
     color: var(--clr-white);
     z-index: 1;
 }
 
 .row__title {
+    font-family: var(--ff-sans);
     font-size: 1.5rem;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 .row__posters {
