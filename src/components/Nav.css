@@ -1,0 +1,26 @@
+.nav {
+    width: 100%;
+    padding: 1rem 2.5rem;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    -webkit-transition: background-color .3s ease-in-out;
+    transition: background-color .3s ease-in-out;
+    z-index: 999;
+}
+
+.nav__show {
+    background-color: var(--clr-black);
+    backdrop-filter: blur(2px);
+
+}
+
+.nav__logo {
+    max-width: 7rem;
+}
+
+.nav__avatar {
+    max-width: 2.5rem;
+}
