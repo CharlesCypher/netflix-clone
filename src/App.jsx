@@ -1,22 +1,20 @@
-import res from "./requests";
-import Nav from "./components/Nav";
-import Banner from "./components/Banner";
-import Row from "./components/Row";
+import Netflix from "./pages/Netflix";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <Banner />
-      <Row title={"CORIFLIX ORIGINAL"} isLargeRow={true} fetchUrl={res.fetchCoriflixOriginals} />
-      <Row title={"Trending"} fetchUrl={res.fetchTrending} />
-      <Row title={"Top Rated"} fetchUrl={res.fetchTopRated} />
-      <Row title={"Action"} fetchUrl={res.fetchActionMovies} />
-      <Row title={"Comedy"} fetchUrl={res.fetchComedyMovies} />
-      <Row title={"Horror"} fetchUrl={res.fetchHorrorMovies} />
-      <Row title={"Romance"} fetchUrl={res.fetchRomanceMovies} />
-      <Row title={"Documentary"} fetchUrl={res.fetchDocumentaries} />
+      <Router>
+        <Routes>
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/" element={<Netflix />} />
+          <Route exact path="*" element={<div>404 ERROR: PAGE NOT FOUND 🤖</div>} />
+        </Routes>
+      </Router>
     </div>
   );
 }

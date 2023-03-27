@@ -1,7 +1,18 @@
 .banner {
+    position: relative;
     width: 100%;
     height: 40rem;
     color: var(--clr-white);
+    z-index: 1;
+}
+
+.banner::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #00000049;
+    z-index: -1;
 }
 
 .banner__contents {
@@ -62,7 +73,7 @@
 }
 
 .banner__fade {
-    height: 10rem;
-    background-image: linear-gradient(180deg, transparent, rgba(27, 27, 27, .65), #111);
-    margin-top: -9rem;
+    height: 12rem;
+    background-image: linear-gradient(180deg, transparent, rgba(27, 27, 27, .65), var(--clr-backdrop));
+    margin-top: -10rem;
 }

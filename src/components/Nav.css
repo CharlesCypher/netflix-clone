@@ -13,8 +13,6 @@
 
 .nav__show {
     background-color: var(--clr-black);
-    backdrop-filter: blur(2px);
-
 }
 
 .nav__logo {

@@ -1,9 +1,11 @@
 :root {
   --clr-white: #FFFFFF;
   --clr-black: #000000e0;
+  --clr-bg-black: #000000;
   --clr-grey: #808080;
   --clr-backdrop: #111111;
   --ff-bebas: 'Bebas Neue', sans-serif;
+  --ff-sans: sans-serif;
 }
 
 /*
@@ -39,7 +41,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-color: var(--clr-backdrop);
+  background-color: var(--clr-bg-black);
 }
 
 /*
@@ -83,8 +85,4 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
-}
-
-.App {
-  background-color: var(--clr-backdrop);
 }
