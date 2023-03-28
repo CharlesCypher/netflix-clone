@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import res from "../requests";
 import axios from "../axios";
 import "./Banner.css";
 
-function Banner() {
+function Banner({ openModal }) {
   const [movie, setMovie] = useState([]);
+  // const navigate = useNavigate();
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(res.fetchCoriflixOriginals);
@@ -29,8 +31,14 @@ function Banner() {
       <div className="banner__contents">
         <h1 className="banner__title">{movie?.title || movie?.name || movie?.original_name}</h1>
         <div className="banner__buttons">
-          <button className="banner__button">
-            <i className="fa-solid fa-play " style={{ color: "#000000" }}></i>Play
+          <button
+            className="banner__button"
+            onClick={() => {
+              openModal();
+            }}
+          >
+            <i className="fa-solid fa-play " style={{ color: "#000000" }}></i>
+            Play
           </button>
           <button className="banner__button">
             <i className="fa-solid fa-plus" style={{ color: "#ffffff" }}></i>More Info

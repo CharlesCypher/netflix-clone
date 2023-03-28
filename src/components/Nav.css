@@ -22,3 +22,20 @@
 .nav__avatar {
     max-width: 2.5rem;
 }
+
+.nav__left {
+    display: flex;
+    align-items: center;
+
+}
+
+.nav__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav__links .link {
+    margin: auto 1rem;
+}

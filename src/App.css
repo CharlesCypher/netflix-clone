@@ -41,7 +41,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-color: var(--clr-bg-black);
+  background-color: var(--clr-backdrop);
 }
 
 /*
@@ -85,4 +85,11 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+.pageNotFound {
+  font-size: 2rem;
+  text-align: center;
+  margin: 5rem auto;
+  color: var(--clr-grey);
 }
