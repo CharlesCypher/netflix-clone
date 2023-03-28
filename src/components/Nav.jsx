@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { signOut, onAuthStateChanged } from "firebase/auth";
+import { firebaseAuth } from "../utils/firebase-config";
 import "./Nav.css";
 
 function Nav() {
   const [showNav, setShowNav] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(firebaseAuth, (currentUser) => {
+      if (!currentUser) navigate("/login");
+    });
+  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -59,6 +69,13 @@ function Nav() {
         </div>
         <div className="nav__right">
           <img className="nav__avatar" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="user" />
+          <i
+            className="fa-solid fa-arrow-right-from-bracket"
+            style={{ color: "#ffffff", fontSize: "1.5rem" }}
+            onClick={() => {
+              signOut(firebaseAuth);
+            }}
+          ></i>
         </div>
       </nav>
     </header>

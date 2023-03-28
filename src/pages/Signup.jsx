@@ -21,12 +21,12 @@ function Signup() {
       console.log(error);
     }
   };
-  onAuthStateChanged(firebaseAuth, (currentUser) => {
-    if (currentUser) navigate("/");
-  });
-  //   useEffect(() => {
 
-  //   }, []);
+  useEffect(() => {
+    onAuthStateChanged(firebaseAuth, (currentUser) => {
+      if (currentUser) navigate("/");
+    });
+  }, []);
 
   return (
     <div className="signup__wrapper">
@@ -40,7 +40,7 @@ function Signup() {
           backgroundSize: "cover",
         }}
       >
-        <Header />
+        <Header login={"login"} />
         <div className="signup__overlay"></div>
         <div className="signup__content">
           <h1 className="signup__title">Unlimited movies, TV shows, and more.</h1>

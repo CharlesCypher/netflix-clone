@@ -14,6 +14,7 @@
     color: var(--clr-white);
     border: none;
     border-radius: .2rem;
+    font-family: var(--ff-sans);
     font-weight: 900;
     background-color: red;
     cursor: pointer;

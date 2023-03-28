@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { firebaseAuth } from "../utils/firebase-config";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -16,22 +16,31 @@ function Signup() {
       e.preventDefault();
       const { email, password } = formValues;
       await signInWithEmailAndPassword(firebaseAuth, email, password);
-    } catch (error) {
-      <div className="error__message" style={{ color: "white" }}>
-        User not Found
-      </div>;
-    }
+    } catch (error) {}
   };
-  onAuthStateChanged(firebaseAuth, (currentUser) => {
-    if (currentUser) navigate("/");
-  });
+  useEffect(() => {
+    onAuthStateChanged(firebaseAuth, (currentUser) => {
+      if (currentUser) navigate("/");
+    });
+  }, []);
 
   return (
-    <div className="login">
+    <div
+      className="login"
+      style={{
+        height: "100vh",
+        position: "relative",
+        backgroundImage: `url("https://assets.nflxext.com/ffe/siteui/vlv3/8f12b4f0-a894-4d5b-9c36-5ba391c63fbe/6d18e1d5-258b-4181-82e8-75d9b241d7ea/NG-en-20230320-popsignuptwoweeks-perspective_alpha_website_large.jpg")`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        zIndex: 1,
+      }}
+    >
+      <div className="login__overlay"></div>
       <Header />
       <div className="login__content">
         <div className="login__login">
-          <h2 className="login__title">Login</h2>
+          <h2 className="login__title">Sign In</h2>
           <form className="login__form">
             <input
               className="login__input email"
@@ -54,7 +63,7 @@ function Signup() {
               }}
             />
             <button className="login__btn" onClick={handleLogin}>
-              Login
+              Sign In
             </button>
           </form>
         </div>

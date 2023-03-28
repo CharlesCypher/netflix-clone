@@ -22,10 +22,11 @@ export const Modal = ({ isOpen, children, onClose }) => {
       <div
         onClick={(event) => event.preventDefault()}
         style={{
-          zIndex: 2,
+          zIndex: 1,
           position: "absolute",
+          top: "100%",
           left: "50%",
-          transform: "translateX(-50%)",
+          transform: "translate(-50%, -50%)",
           paddingTop: "20px",
           paddingBottom: "20px",
           height: "fit-content",

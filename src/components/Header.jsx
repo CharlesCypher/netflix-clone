@@ -17,7 +17,7 @@ function Header(props) {
           navigate(props.login ? "/login" : "/signup");
         }}
       >
-        {props.login ? "Login" : "Sign Up"}
+        {props.login ? "Sign In" : "Sign Up"}
       </button>
     </header>
   );
