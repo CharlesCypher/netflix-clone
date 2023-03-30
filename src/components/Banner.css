@@ -81,13 +81,17 @@
 }
 
 .modal {
-    width: 600px;
-    height: 42vw;
+    max-width: 600px;
+    height: 600px;
     position: relative;
     overflow-x: hidden;
     overflow-y: scroll;
+    margin: 0 auto;
     color: var(--clr-white);
     background-color: var(--clr-backdrop);
+    box-shadow: 2px 2px 10px 1px rgba(17, 17, 17, 0.75);
+    -webkit-box-shadow: 2px 2px 10px 1px rgba(17, 17, 17, 0.75);
+    -moz-box-shadow: 2px 2px 10px 1px rgba(17, 17, 17, 0.75);
 }
 
 .modalVideo__container {

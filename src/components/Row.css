@@ -77,6 +77,11 @@
     cursor: pointer;
 }
 
+.goPrev__btn:hover,
+.goNext__btn:hover {
+    color: red;
+}
+
 .goPrev__btn {
     position: absolute;
     left: 0;
