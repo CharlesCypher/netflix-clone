@@ -41,7 +41,7 @@ function Nav() {
               </Link>
             </li>
             <li className="link">
-              <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
+              <Link to={"/tvshows"} style={{ textDecoration: "none", color: "white" }}>
                 TV Shows
               </Link>
             </li>

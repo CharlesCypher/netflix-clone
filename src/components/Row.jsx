@@ -56,8 +56,8 @@ function Row({ title, fetchUrl, isLargeRow }) {
       <h2 className="row__title">{title}</h2>
 
       <div className={"row__posters"}>
-        <button className="goPrev__btn" style={{ position: "absolute", left: "0", top: "45%", zIndex: "2" }} onClick={goPrev}>
-          <i className="fa-solid fa-angle-left" style={{ color: "#ff0000", fontSize: "2.5rem" }}></i>
+        <button className="goPrev__btn" onClick={goPrev}>
+          <i className="fa-solid fa-angle-left" style={{ fontSize: "2.5rem" }}></i>
         </button>
         <div className="row_row__posters">
           {movies?.map((movie) => (
@@ -65,12 +65,13 @@ function Row({ title, fetchUrl, isLargeRow }) {
               key={movie.id}
               className={`row__poster ${isLargeRow && "row__postersLarge"}`}
               src={`${BASE_URL}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+              loading="lazy"
               alt={movie.name}
             />
           ))}
         </div>
-        <button className="goNext__btn" style={{ position: "absolute", right: "0", top: "45%", zIndex: "2" }} onClick={goNext}>
-          <i className="fa-solid fa-angle-right" style={{ color: "#ff0000", fontSize: "2.5rem" }}></i>
+        <button className="goNext__btn" onClick={goNext}>
+          <i className="fa-solid fa-angle-right" style={{ fontSize: "2.5rem" }}></i>
         </button>
       </div>
     </div>
