@@ -13,18 +13,65 @@ function Row({ title, fetchUrl, isLargeRow }) {
     }
     fetchData();
   }, [fetchUrl]);
+
+  let defaultTransform = 0;
+
+  function goNext() {
+    const carousel = document.querySelector(".row_row__posters");
+    defaultTransform -= 160;
+    if (Math.abs(defaultTransform) >= Math.floor(carousel.scrollWidth / 1.5)) defaultTransform = 0;
+    carousel.style.transform = "translateX(" + defaultTransform + "px)";
+    console.log(defaultTransform);
+  }
+
+  function goPrev() {
+    const carousel = document.querySelector(".row_row__posters");
+    if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
+    else defaultTransform += 160;
+    carousel.style.transform = "translateX(" + defaultTransform + "px)";
+  }
+
+  // Create a media condition that targets viewports at least 768px wide
+  const mediaQuery = window.matchMedia("(max-width: 1024px)");
+  // Check if the media query is true
+  if (mediaQuery.matches) {
+    function goNext() {
+      const carousel = document.querySelector(".row_row__posters");
+      defaultTransform -= 160;
+      if (Math.abs(defaultTransform) >= Math.floor(carousel.scrollWidth / 1.3)) defaultTransform = 0;
+      carousel.style.transform = "translateX(" + defaultTransform + "px)";
+      console.log(defaultTransform);
+      // console.log(carousel.scrollWidth);
+    }
+
+    function goPrev() {
+      const carousel = document.querySelector(".row_row__posters");
+      if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
+      else defaultTransform += 160;
+      carousel.style.transform = "translateX(" + defaultTransform + "px)";
+    }
+  }
   return (
     <div className="row">
       <h2 className="row__title">{title}</h2>
+
       <div className={"row__posters"}>
-        {movies?.map((movie) => (
-          <img
-            key={movie.id}
-            className={`row__poster ${isLargeRow && "row__postersLarge"}`}
-            src={`${BASE_URL}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-            alt={movie.name}
-          />
-        ))}
+        <button className="goPrev__btn" style={{ position: "absolute", left: "0", top: "45%", zIndex: "2" }} onClick={goPrev}>
+          <i className="fa-solid fa-angle-left" style={{ color: "#ff0000", fontSize: "2.5rem" }}></i>
+        </button>
+        <div className="row_row__posters">
+          {movies?.map((movie) => (
+            <img
+              key={movie.id}
+              className={`row__poster ${isLargeRow && "row__postersLarge"}`}
+              src={`${BASE_URL}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+              alt={movie.name}
+            />
+          ))}
+        </div>
+        <button className="goNext__btn" style={{ position: "absolute", right: "0", top: "45%", zIndex: "2" }} onClick={goNext}>
+          <i className="fa-solid fa-angle-right" style={{ color: "#ff0000", fontSize: "2.5rem" }}></i>
+        </button>
       </div>
     </div>
   );

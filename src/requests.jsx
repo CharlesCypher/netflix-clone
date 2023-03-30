@@ -10,7 +10,6 @@ const requests = {
   fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
   fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
 };
-// const base_url = "https://image.tmdb.org/t/p/original";
 
 export const BASE_URL = "https://image.tmdb.org/t/p/original/";
 

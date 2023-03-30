@@ -3,6 +3,7 @@
     width: 100%;
     height: 40rem;
     color: var(--clr-white);
+    transition: all .3s ease-in-out;
     z-index: 1;
 }
 
@@ -77,4 +78,41 @@
     height: 12rem;
     background-image: linear-gradient(180deg, transparent, rgba(27, 27, 27, .65), var(--clr-backdrop));
     margin-top: -10rem;
+}
+
+.modal {
+    width: 600px;
+    height: 42vw;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    color: var(--clr-white);
+    background-color: var(--clr-backdrop);
+}
+
+.modalVideo__container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.modalVideo__container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.modal video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+}
+
+.modalText__container {
+    padding: 1rem;
 }

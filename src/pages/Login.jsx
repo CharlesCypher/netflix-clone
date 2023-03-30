@@ -16,7 +16,9 @@ function Signup() {
       e.preventDefault();
       const { email, password } = formValues;
       await signInWithEmailAndPassword(firebaseAuth, email, password);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   useEffect(() => {
     onAuthStateChanged(firebaseAuth, (currentUser) => {
@@ -48,6 +50,7 @@ function Signup() {
               placeholder="Email address"
               value={formValues.email}
               name="email"
+              required
               onChange={(e) => {
                 setFormValues({ ...formValues, [e.target.name]: e.target.value });
               }}
@@ -58,6 +61,9 @@ function Signup() {
               placeholder="Password"
               value={formValues.password}
               name="password"
+              minLength={6}
+              maxLength={12}
+              required
               onChange={(e) => {
                 setFormValues({ ...formValues, [e.target.name]: e.target.value });
               }}
