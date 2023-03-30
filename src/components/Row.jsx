@@ -15,7 +15,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
   }, [fetchUrl]);
 
   let defaultTransform = 0;
-  let num = 1.52;
+  let num = 1.6;
   const mediaQuery = window.matchMedia("(max-width: 1024px)");
   if (mediaQuery.matches) {
     num = 1.34;
@@ -35,25 +35,6 @@ function Row({ title, fetchUrl, isLargeRow }) {
     else defaultTransform += 160;
     carousel.style.transform = "translateX(" + defaultTransform + "px)";
   }
-
-  // Create a media condition that targets viewports at least 768px wide
-  // const mediaQuery = window.matchMedia("(max-width: 1024px)");
-  // // Check if the media query is true
-  // if (mediaQuery.matches) {
-  //   function goNext() {
-  //     const carousel = document.querySelector(".row_row__posters");
-  //     defaultTransform -= 160;
-  //     if (Math.abs(defaultTransform) >= Math.floor(carousel.scrollWidth / 1.3)) defaultTransform = 0;
-  //     carousel.style.transform = "translateX(" + defaultTransform + "px)";
-  //   }
-
-  //   function goPrev() {
-  //     const carousel = document.querySelector(".row_row__posters");
-  //     if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
-  //     else defaultTransform += 160;
-  //     carousel.style.transform = "translateX(" + defaultTransform + "px)";
-  //   }
-  // }
   return (
     <div className="row">
       <h2 className="row__title">{title}</h2>
