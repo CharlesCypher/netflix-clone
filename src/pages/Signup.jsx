@@ -18,7 +18,7 @@ function Signup() {
       const { email, password } = formValues;
       await createUserWithEmailAndPassword(firebaseAuth, email, password);
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   };
 

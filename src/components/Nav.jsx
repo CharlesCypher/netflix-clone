@@ -8,21 +8,15 @@ import "./Nav.css";
 function Nav() {
   const [showNav, setShowNav] = useState(false);
   const navigate = useNavigate();
-
   useEffect(() => {
     onAuthStateChanged(firebaseAuth, (currentUser) => {
       if (!currentUser) navigate("/login");
     });
-  }, []);
-
-  useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 0) setShowNav(true);
       else setShowNav(false);
     });
-    return () => {
-      window.removeEventListener("scroll", setShowNav());
-    };
+    return () => window.removeEventListener("scroll", setShowNav());
   }, []);
 
   return (

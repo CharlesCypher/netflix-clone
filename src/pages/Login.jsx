@@ -26,6 +26,11 @@ function Signup() {
     });
   }, []);
 
+  // const smallAlphas = "/[a-z]/g";
+  // const emailInput = document.querySelector(".login__input");
+  // if (emailInput.value.match(smallAlphas)){
+
+  // }
   return (
     <div
       className="login"
@@ -62,7 +67,7 @@ function Signup() {
               value={formValues.password}
               name="password"
               minLength={6}
-              maxLength={12}
+              maxLength={20}
               required
               onChange={(e) => {
                 setFormValues({ ...formValues, [e.target.name]: e.target.value });

@@ -3,6 +3,7 @@
     margin-top: -4rem;
     margin-bottom: 6.5rem;
     padding-left: 2.5rem;
+    overflow-x: scroll;
     color: var(--clr-white);
     z-index: 1;
 }
@@ -19,9 +20,8 @@
     position: relative;
     align-items: center;
     justify-content: center;
-    margin-inline: auto;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    /* margin-inline: auto; */
+    overflow-x: scroll;
 }
 
 .row__posters::-webkit-scrollbar {
@@ -30,11 +30,9 @@
 
 .row_row__posters {
     display: flex;
-    /* overflow-y: hidden;
-    overflow-x: hidden; */
+    gap: .5rem;
     padding-top: .8rem;
     padding-bottom: 1.5rem;
-    gap: .5rem;
     transition-property: transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
@@ -60,40 +58,4 @@
 
 .row__postersLarge:hover {
     transform: scale(1.05);
-}
-
-.row:hover .goPrev__btn,
-.row:hover .goNext__btn {
-    visibility: visible;
-}
-
-.goPrev__btn,
-.goNext__btn {
-    visibility: hidden;
-    display: block;
-    border: none;
-    background: none;
-    color: var(--clr-white);
-    cursor: pointer;
-}
-
-.goPrev__btn:hover,
-.goNext__btn:hover {
-    color: red;
-}
-
-.goPrev__btn {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-}
-
-.goNext__btn {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
 }

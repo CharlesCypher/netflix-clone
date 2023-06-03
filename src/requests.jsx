@@ -1,9 +1,9 @@
 const API_KEY = "a6591ee65cb5770b86c8ef099076f862";
 
 const requests = {
-  fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
+  fetchTrending: `/trending/movie/week?api_key=${API_KEY}&language=en-US`,
   fetchCoriflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
-  fetchTopRated: `/movie/popular?api_key=${API_KEY}&language=en-US`,
+  fetchTopRated: `/movie/popular?api_key=${API_KEY}&language=en-US&page=1%27`,
   fetchActionMovies: `/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=true`,
   fetchComedyMovies: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
   fetchHorrorMovies: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
