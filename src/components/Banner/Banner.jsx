@@ -51,7 +51,7 @@ function Banner() {
             <video src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v" autoPlay loop></video>
           </div>
           <div className="modalText__container">
-            <h2>{movie?.title}</h2>
+            <h2>{movie?.title || movie?.name || movie?.original_name}</h2>
             <p>{movie?.overview}</p>
             <Link to={pathname === "/tvshows" ? `/tv/${movie?.id}` : `/movie/${movie?.id}`} className="banner__button">
               <i className="fa-solid fa-play " style={{ color: "#000000" }}></i>

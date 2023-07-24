@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Movie() {
   const navigate = useNavigate();
   return (
-    <div style={{ paddingTop: "5rem" }}>
-      <button onClick={() => navigate(-2)}>BAck</button>
+    <div>
       <MovieDetail />
     </div>
   );
