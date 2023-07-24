@@ -35,17 +35,12 @@ function Nav() {
               <ul className="nav__links">
                 <li className="link">
                   <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
-                    Home
+                    Movies
                   </Link>
                 </li>
                 <li className="link">
                   <Link to={"/tvshows"} style={{ textDecoration: "none", color: "white" }}>
-                    TV Shows
-                  </Link>
-                </li>
-                <li className="link">
-                  <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
-                    Movies
+                    Series
                   </Link>
                 </li>
                 <li className="link">
@@ -56,11 +51,6 @@ function Nav() {
                 <li className="link">
                   <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
                     My List
-                  </Link>
-                </li>
-                <li className="link">
-                  <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
-                    Browse by Language
                   </Link>
                 </li>
               </ul>
