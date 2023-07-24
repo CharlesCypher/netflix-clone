@@ -81,3 +81,7 @@
     border-radius: .2rem;
     cursor: pointer;
 }
+
+.login__err {
+    color: red;
+}

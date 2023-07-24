@@ -6,17 +6,30 @@ import axios from "../../axios";
 import "./Banner.css";
 
 function Banner() {
+  const API_KEY = "a6591ee65cb5770b86c8ef099076f862";
   const { pathname } = useLocation();
   const [movie, setMovie] = useState([]);
+  const [movies, setMovies] = useState([]);
+  const [movieId, setMovieId] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(pathname === "/tvshows" ? res.fetchCoriflixOriginals : res.fetchActionMovies);
-      setMovie(response.data.results[Math.floor(Math.random() * response.data.results.length - 1)]);
+      setMovie(response.data.results[Math.floor(Math.random() * response.data.results.length - 2)]);
+      setMovieId(movie?.id);
     }
     fetchData();
   }, []);
-
+  // useEffect(() => {
+  //   async function fetchMovie() {
+  //     const response = await axios.get(
+  //       pathname === `/tvshows` ? `tv/${movieId}/videos?api_key=${API_KEY}` : `movie/${movieId}/videos?api_key=${API_KEY}`
+  //     );
+  //     setMovies(response.data.results);
+  //   }
+  //   fetchMovie();
+  //   console.log(movieId);
+  // }, [movieId]);
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
@@ -47,16 +60,34 @@ function Banner() {
       </div>
       <Modal open={isOpen} onClose={() => setIsOpen(false)}>
         <div className="modal">
-          <div className="modalVideo__container">
+          {/* <div className="modalVideo__container">
             <video src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v" autoPlay loop></video>
+          </div> */}
+          <div className="video__container">
+            <iframe
+              className="video__iframe"
+              src={`https://www.youtube.com/embed/${movies?.filter((movie) => movie.type === "Trailer")[0]?.key}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share;"
+              // allowFullScreen
+            ></iframe>
           </div>
           <div className="modalText__container">
-            <h2>{movie?.title || movie?.name || movie?.original_name}</h2>
-            <p>{movie?.overview}</p>
-            <Link to={pathname === "/tvshows" ? `/tv/${movie?.id}` : `/movie/${movie?.id}`} className="banner__button">
-              <i className="fa-solid fa-play " style={{ color: "#000000" }}></i>
-              Play
-            </Link>
+            <h2 className="modal__title">{movie?.title || movie?.name || movie?.original_name}</h2>
+            <p className="modal__desc">{movie?.overview}</p>
+            <div className="modalBtn__wrapper">
+              <Link
+                to={pathname === "/tvshows" ? `/tv/${movie?.id}` : `/movie/${movie?.id}`}
+                className="banner__button"
+                // onClick={() => setMovieId(movie?.id)}
+              >
+                <i className="fa-solid fa-play " style={{ color: "#000000" }}></i>
+                Play
+              </Link>
+              <button>
+                <i className="fa-solid fa-plus" style={{ color: "#000000" }}></i> Add to list
+              </button>
+            </div>
           </div>
         </div>
       </Modal>

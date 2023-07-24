@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import res from "../requests";
-import Banner from "../components/Banner/Banner";
-import Row from "../components/Rows/Row";
-import "./Netflix.css";
+import res from "../../requests";
+import Banner from "../../components/Banner/Banner";
+import Row from "../../components/Rows/Row";
+import "./Home.css";
 
-function Netflix() {
+function Home() {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,4 +32,4 @@ function Netflix() {
   );
 }
 
-export default Netflix;
+export default Home;

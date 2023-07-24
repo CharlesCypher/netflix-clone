@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Nav from "./components/Header/Nav";
-import Netflix from "./pages/Netflix";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-import TvShows from "./pages/TvShows";
+import Home from "./pages/Home/Home";
+import Signup from "./pages/Register/Signup";
+import Login from "./pages/Login/Login";
+import TvShows from "./pages/Series/TvShows";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Series from "./components/Series/Series";
 import Movie from "./components/Movie/Movie";
@@ -20,7 +20,7 @@ function App() {
             path="/"
             element={
               <ProtectedRoute>
-                <Netflix />
+                <Home />
               </ProtectedRoute>
             }
           />

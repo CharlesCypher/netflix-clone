@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useVideos from "../hooks/useVideo";
 import MovieDetail from "./MovieDetails/MovieDetail";
-import SearchBar from "./SearchBar";
+import SearchBar from "./Search/SearchBar";
 
 const YtVideos = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);

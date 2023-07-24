@@ -1,12 +1,10 @@
-import React from "react";
-
 const MODAL_STYLES = {
   position: "fixed",
   top: "55%",
   left: "50%",
   transform: "translate(-50%,-50%)",
   backgroundColor: "var(--clr-backdrop)",
-  borderRadius: "1rem 1rem 0 0",
+  borderRadius: ".5rem",
   zIndex: 999,
 };
 
@@ -27,7 +25,7 @@ const CLOSEBTN_STYLES = {
   border: "none",
   background: "none",
   cursor: "pointer",
-  zIndex: 2,
+  zIndex: 1000,
 };
 
 export default function Modal({ open, children, onClose }) {

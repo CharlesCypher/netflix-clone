@@ -1,5 +1,5 @@
 import React from "react";
-import Netflix from "./Netflix";
+import Netflix from "../Home/Home";
 
 function TvShows() {
   return (
