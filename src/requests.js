@@ -10,7 +10,6 @@ const requests = {
   fetchHorrorMovies: `discover/movie?api_key=${API_KEY}&with_genres=27`,
   fetchRomanceMovies: `discover/movie?api_key=${API_KEY}&with_genres=10749`,
   fetchDocumentaries: `discover/movie?api_key=${API_KEY}&with_genres=99`,
-  // fetchMovieById: `movie/63333?api_key=${API_KEY}`,
 };
 
 // export const BASE_URL = import.meta.env.VITE_REACT_APP_TMDB_BASE_URL;
