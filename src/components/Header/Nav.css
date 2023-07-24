@@ -36,10 +36,15 @@
     list-style: none;
 }
 
-@media (max-width: 1024px) {
-    .nav__links {
-        display: none;
-    }
+.nav__btn {
+    padding: .4rem 1rem;
+    color: var(--clr-white);
+    border: none;
+    border-radius: .2rem;
+    font-family: var(--ff-sans);
+    font-weight: 900;
+    background-color: red;
+    cursor: pointer;
 }
 
 .nav__links .link {
@@ -53,4 +58,10 @@
 .nav__right i {
     margin: 0 1.5rem;
     cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .nav__links {
+        display: none;
+    }
 }

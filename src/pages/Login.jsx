@@ -1,36 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { firebaseAuth } from "../utils/firebase-config";
-import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
+import { firebaseAuth } from "../utils/firebase-config";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { AuthContext } from "../context/AuthContext";
 import "./Login.css";
 
-function Signup() {
+function Login() {
+  // const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
   });
-  const navigate = useNavigate();
+  const [err, setErr] = useState(null);
+  // useEffect(() => {
+  //   if (currentUser) navigate("/");
+  // }, []);
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
       const { email, password } = formValues;
       await signInWithEmailAndPassword(firebaseAuth, email, password);
+      setErr("");
+      navigate("/");
     } catch (error) {
-      console.log(error.message);
+      setErr(error?.message);
     }
   };
-  useEffect(() => {
-    onAuthStateChanged(firebaseAuth, (currentUser) => {
-      if (currentUser) navigate("/");
-    });
-  }, []);
-
-  // const smallAlphas = "/[a-z]/g";
-  // const emailInput = document.querySelector(".login__input");
-  // if (emailInput.value.match(smallAlphas)){
-
-  // }
   return (
     <div
       className="login"
@@ -44,10 +40,9 @@ function Signup() {
       }}
     >
       <div className="login__overlay"></div>
-      <Header />
       <div className="login__content">
         <div className="login__login">
-          <h2 className="login__title">Sign In</h2>
+          <h2 className="login__title">Login</h2>
           <form className="login__form">
             <input
               className="login__input email"
@@ -74,8 +69,9 @@ function Signup() {
               }}
             />
             <button className="login__btn" onClick={handleLogin}>
-              Sign In
+              Login
             </button>
+            {err && <span className="">{err}</span>}
           </form>
         </div>
       </div>
@@ -83,4 +79,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;

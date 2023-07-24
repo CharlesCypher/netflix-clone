@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 const MODAL_STYLES = {
   position: "fixed",
@@ -8,7 +7,7 @@ const MODAL_STYLES = {
   transform: "translate(-50%,-50%)",
   backgroundColor: "var(--clr-backdrop)",
   borderRadius: "1rem 1rem 0 0",
-  zIndex: 10,
+  zIndex: 999,
 };
 
 const OVERLAY_STYLES = {
@@ -18,7 +17,7 @@ const OVERLAY_STYLES = {
   right: 0,
   bottom: 0,
   backgroundColor: "rgba(0,0,0,.7)",
-  zIndex: 2,
+  zIndex: 999,
 };
 
 const CLOSEBTN_STYLES = {
@@ -33,7 +32,7 @@ const CLOSEBTN_STYLES = {
 
 export default function Modal({ open, children, onClose }) {
   if (!open) return null;
-  return ReactDOM.createPortal(
+  return (
     <>
       <div style={OVERLAY_STYLES}></div>
       <div style={MODAL_STYLES}>
@@ -42,7 +41,6 @@ export default function Modal({ open, children, onClose }) {
         </button>
         {children}
       </div>
-    </>,
-    document.getElementById("portal")
+    </>
   );
 }

@@ -1,33 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { firebaseAuth } from "../utils/firebase-config";
-import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
+import { firebaseAuth } from "../utils/firebase-config";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import "./Signup.css";
 
 function Signup() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
   });
-  const navigate = useNavigate();
+  const [err, setErr] = useState(null);
   const handleSignin = async (e) => {
     try {
       e.preventDefault();
       const { email, password } = formValues;
       await createUserWithEmailAndPassword(firebaseAuth, email, password);
+      setErr("");
+      navigate("/");
     } catch (error) {
-      throw error;
+      setErr(error?.message);
     }
   };
-
-  useEffect(() => {
-    onAuthStateChanged(firebaseAuth, (currentUser) => {
-      if (currentUser) navigate("/");
-    });
-  }, []);
-
   return (
     <div className="signup__wrapper">
       <div
@@ -40,7 +35,6 @@ function Signup() {
           backgroundSize: "cover",
         }}
       >
-        <Header login={"login"} />
         <div className="signup__overlay"></div>
         <div className="signup__content">
           <h1 className="signup__title">Unlimited movies, TV shows, and more.</h1>
@@ -81,9 +75,10 @@ function Signup() {
             )}
             {showPassword && (
               <button className="signup__btn" onClick={handleSignin}>
-                Sign In
+                Sign up
               </button>
             )}
+            {err && <span className="">{err}</span>}
           </form>
         </div>
       </div>

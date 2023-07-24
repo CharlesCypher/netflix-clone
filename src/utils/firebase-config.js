@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
+  // apiKey: import.meta.env.VITE_REACT_APP_FB_API_KEY,
   apiKey: "AIzaSyDWtWw-OTN83mdsKwdp5g_GIC_Yo8IN8nk",
   authDomain: "coriflix.firebaseapp.com",
   projectId: "coriflix",
@@ -12,5 +13,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
 export const firebaseAuth = getAuth(app);

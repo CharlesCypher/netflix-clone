@@ -1,23 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import res from "../requests";
-import Nav from "../components/Nav";
-import Banner from "../components/Banner";
-import Row from "../components/Row";
+import Banner from "../components/Banner/Banner";
+import Row from "../components/Rows/Row";
 import "./Netflix.css";
 
 function Netflix() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <div>
-      <Nav />
-      <Banner />
-      <Row title={"New Releases"} isLargeRow={true} fetchUrl={res.fetchCoriflixOriginals} />
-      <Row title={"Trending Now"} fetchUrl={res.fetchTrending} />
-      <Row title={"Popular on Coriflix"} fetchUrl={res.fetchTopRated} />
-      <Row title={"Action Movies"} fetchUrl={res.fetchActionMovies} />
-      <Row title={"Comedies"} fetchUrl={res.fetchComedyMovies} />
-      <Row title={"Thriller & Horror"} fetchUrl={res.fetchHorrorMovies} />
-      <Row title={"Romantic Movies"} fetchUrl={res.fetchRomanceMovies} />
-      <Row title={"Documentaries"} fetchUrl={res.fetchDocumentaries} />
+      {pathname === "/tvshows" ? (
+        <>
+          <Banner />
+          <Row title={"New Releases"} fetchUrl={res.fetchCoriflixOriginals} />
+        </>
+      ) : (
+        <>
+          <Banner />
+          <Row title="Trending" fetchUrl={res.fetchTrending} />
+          <Row title="Action" fetchUrl={res.fetchActionMovies} />
+          <Row title="Comedies" fetchUrl={res.fetchComedyMovies} />
+          <Row title="Horror" fetchUrl={res.fetchHorrorMovies} />
+          <Row title="Romance" fetchUrl={res.fetchRomanceMovies} />
+          <Row title="Documentaries" fetchUrl={res.fetchDocumentaries} />
+        </>
+      )}
     </div>
   );
 }
