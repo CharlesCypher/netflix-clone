@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Modal from "../Modal/Modal";
-import res from "../../requests";
-import axios from "../../axios";
+import res from "../../constants/requests";
+import axios from "../../constants/axios";
 import "./Banner.css";
 
 function Banner() {
@@ -20,16 +20,15 @@ function Banner() {
     }
     fetchData();
   }, []);
-  // useEffect(() => {
-  //   async function fetchMovie() {
-  //     const response = await axios.get(
-  //       pathname === `/tvshows` ? `tv/${movieId}/videos?api_key=${API_KEY}` : `movie/${movieId}/videos?api_key=${API_KEY}`
-  //     );
-  //     setMovies(response.data.results);
-  //   }
-  //   fetchMovie();
-  //   console.log(movieId);
-  // }, [movieId]);
+  useEffect(() => {
+    async function fetchMovie() {
+      const response = await axios.get(
+        pathname === `/tvshows` ? `tv/${movieId}/videos?api_key=${API_KEY}` : `movie/${movieId}/videos?api_key=${API_KEY}`
+      );
+      setMovies(response.data.results);
+    }
+    fetchMovie();
+  }, [movieId]);
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
@@ -50,7 +49,13 @@ function Banner() {
               <i className="fa-solid fa-play " style={{ color: "#000000" }}></i>
               Play
             </Link>
-            <button className="banner__button" onClick={() => setIsOpen(true)}>
+            <button
+              className="banner__button"
+              onClick={() => {
+                setIsOpen(true);
+                setMovieId(movie?.id);
+              }}
+            >
               <i className="fa-solid fa-plus" style={{ color: "#ffffff" }}></i>More Info
             </button>
           </div>
@@ -69,22 +74,17 @@ function Banner() {
               src={`https://www.youtube.com/embed/${movies?.filter((movie) => movie.type === "Trailer")[0]?.key}`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share;"
-              // allowFullScreen
             ></iframe>
           </div>
           <div className="modalText__container">
             <h2 className="modal__title">{movie?.title || movie?.name || movie?.original_name}</h2>
             <p className="modal__desc">{movie?.overview}</p>
             <div className="modalBtn__wrapper">
-              <Link
-                to={pathname === "/tvshows" ? `/tv/${movie?.id}` : `/movie/${movie?.id}`}
-                className="banner__button"
-                // onClick={() => setMovieId(movie?.id)}
-              >
+              <Link to={pathname === "/tvshows" ? `/tv/${movie?.id}` : `/movie/${movie?.id}`} className="banner__button">
                 <i className="fa-solid fa-play " style={{ color: "#000000" }}></i>
                 Play
               </Link>
-              <button>
+              <button className="banner__button">
                 <i className="fa-solid fa-plus" style={{ color: "#000000" }}></i> Add to list
               </button>
             </div>

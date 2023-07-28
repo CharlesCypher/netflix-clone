@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
+import "./Nav.css";
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { firebaseAuth } from "../../utils/firebase-config";
 import { AuthContext } from "../../context/AuthContext";
-import "./Nav.css";
+import { useSelector } from "react-redux";
 
 function Nav() {
+  const lists = useSelector((state) => state.list.movies);
   const { pathname } = useLocation();
   const { currentUser } = useContext(AuthContext);
   const [showNav, setShowNav] = useState(false);
@@ -34,23 +36,23 @@ function Nav() {
             <>
               <ul className="nav__links">
                 <li className="link">
-                  <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
+                  <Link to="/" style={{ textDecoration: "none", color: "white" }}>
                     Movies
                   </Link>
                 </li>
                 <li className="link">
-                  <Link to={"/tvshows"} style={{ textDecoration: "none", color: "white" }}>
+                  <Link to="/tvshows" style={{ textDecoration: "none", color: "white" }}>
                     Series
                   </Link>
                 </li>
                 <li className="link">
-                  <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
+                  <Link to="/" style={{ textDecoration: "none", color: "white" }}>
                     New & Popular
                   </Link>
                 </li>
                 <li className="link">
-                  <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
-                    My List
+                  <Link to="/my-list" style={{ textDecoration: "none", color: "white" }}>
+                    My List <span>{lists.length}</span>
                   </Link>
                 </li>
               </ul>

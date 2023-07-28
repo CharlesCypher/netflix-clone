@@ -85,11 +85,11 @@
 .modal {
     width: 100%;
     height: 600px;
+    margin: 0 auto;
     max-width: 800px;
     position: relative;
     overflow-x: hidden;
     overflow-y: scroll;
-    margin: 0 auto;
     color: var(--clr-white);
     background-color: var(--clr-backdrop);
     border-radius: .5rem;
@@ -134,5 +134,17 @@
 }
 
 .modal__desc {
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.modalBtn__wrapper {
+    display: flex;
+}
+
+.modalBtn__wrapper a {
+    flex: 1;
+}
+
+.modalBtn__wrapper button {
+    flex: 1;
 }

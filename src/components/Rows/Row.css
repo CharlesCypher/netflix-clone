@@ -40,6 +40,7 @@
 }
 
 .row__poster {
+    position: relative;
     width: 150px;
     height: auto;
     transition: transform 450ms ease-in-out;
@@ -55,4 +56,10 @@
 
 .row__poster:hover {
     transform: scale(1.05);
+}
+
+.wishList__btn {
+    position: absolute;
+    top: 5%;
+    right: 5%;
 }

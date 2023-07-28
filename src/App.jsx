@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Series from "./components/Series/Series";
 import Movie from "./components/Movie/Movie";
 import "./App.css";
+import Lists from "./pages/Lists/Lists";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/movie/:id" element={<Movie />} />
           <Route exact path="/tv/:id" element={<Series />} />
           <Route exact path="/tvshows" element={<TvShows />} />
+          <Route exact path="/my-list" element={<Lists />} />
           <Route exact path="*" element={<div className="pageNotFound">404 ERROR: PAGE NOT FOUND 🤖</div>} />
         </Routes>
       </Router>

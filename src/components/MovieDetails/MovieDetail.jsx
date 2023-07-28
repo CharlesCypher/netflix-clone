@@ -1,4 +1,4 @@
-import axios from "../../axios";
+import axios from "../../constants/axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./MovieDetail.css";

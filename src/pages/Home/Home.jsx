@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import res from "../../requests";
+import res from "../../constants/requests";
 import Banner from "../../components/Banner/Banner";
 import Row from "../../components/Rows/Row";
 import "./Home.css";
