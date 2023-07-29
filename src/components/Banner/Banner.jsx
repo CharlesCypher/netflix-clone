@@ -1,12 +1,15 @@
+import "./Banner.css";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Modal from "../Modal/Modal";
 import res from "../../constants/requests";
 import axios from "../../constants/axios";
-import "./Banner.css";
+import { useDispatch } from "react-redux";
+import { addToList } from "../../features/list/listSlice";
 
 function Banner() {
   const API_KEY = "a6591ee65cb5770b86c8ef099076f862";
+  const dispatch = useDispatch();
   const { pathname } = useLocation();
   const [movie, setMovie] = useState([]);
   const [movies, setMovies] = useState([]);
@@ -84,7 +87,18 @@ function Banner() {
                 <i className="fa-solid fa-play " style={{ color: "#000000" }}></i>
                 Play
               </Link>
-              <button className="banner__button">
+              <button
+                className="banner__button"
+                onClick={() =>
+                  dispatch(
+                    addToList({
+                      id: movie?.id,
+                      movieName: movie?.title || movie?.name || movie?.original_name,
+                      movieImage: `https://image.tmdb.org/t/p/original${movie?.poster_path}`,
+                    })
+                  )
+                }
+              >
                 <i className="fa-solid fa-plus" style={{ color: "#000000" }}></i> Add to list
               </button>
             </div>

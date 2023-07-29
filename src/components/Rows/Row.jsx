@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
 import "./Row.css";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import axios from "../../constants/axios";
 import { BASE_URL } from "../../constants/requests";
 import { useDispatch } from "react-redux";
 import { addToList } from "../../features/list/listSlice";
+import { HeartStraight } from "phosphor-react";
 
 function Row({ title, fetchUrl }) {
   const dispatch = useDispatch();
@@ -36,12 +37,12 @@ function Row({ title, fetchUrl }) {
                     addToList({
                       id: movie?.id,
                       movieName: movie?.title || movie?.name || movie?.original_name,
-                      movieImage: `${BASE_URL}${movie.poster_path}`,
+                      movieImage: `${BASE_URL}${movie?.poster_path}`,
                     })
                   )
                 }
               >
-                like
+                <HeartStraight className="" size={18} />
               </button>
             </div>
           ))}

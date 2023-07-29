@@ -5,7 +5,18 @@ function List() {
   const lists = useSelector((state) => state.list.movies);
   console.log(lists);
   return (
-    <div>
+    <div
+      style={{
+        paddingInline: "2.5rem",
+        paddingBlock: "5rem",
+        color: "white",
+        display: "grid",
+        gridTemplateColumns: "repeat(3,1fr)",
+        width: "100%",
+        height: "100%",
+        gap: "1.5rem",
+      }}
+    >
       {lists.map((movie) => (
         <div className="" key={movie.id}>
           <h2>{movie.movieName}</h2>
