@@ -13,6 +13,6 @@ const requests = {
 };
 
 // export const BASE_URL = import.meta.env.VITE_REACT_APP_TMDB_BASE_URL;
-export const BASE_URL = "https://image.tmdb.org/t/p/original/";
+export const BASE_URL = "https://image.tmdb.org/t/p/original";
 
 export default requests;

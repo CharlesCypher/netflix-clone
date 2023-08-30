@@ -1,22 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import "./List.css";
 
 function List() {
   const lists = useSelector((state) => state.list.movies);
-  console.log(lists);
   return (
-    <div
-      style={{
-        paddingInline: "2.5rem",
-        paddingBlock: "5rem",
-        color: "white",
-        display: "grid",
-        gridTemplateColumns: "repeat(3,1fr)",
-        width: "100%",
-        height: "100%",
-        gap: "1.5rem",
-      }}
-    >
+    <div className="list__container">
       {lists.map((movie) => (
         <div className="" key={movie.id}>
           <h2>{movie.movieName}</h2>

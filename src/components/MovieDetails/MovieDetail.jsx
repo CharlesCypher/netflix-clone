@@ -25,6 +25,7 @@ function MovieDetail() {
         src={`https://www.youtube.com/embed/${movies?.filter((movie) => movie.type === "Trailer")[0]?.key}`}
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
+        allowFullScreen
       ></iframe>
       <button onClick={() => navigate(-1)}>BACK</button>
     </div>

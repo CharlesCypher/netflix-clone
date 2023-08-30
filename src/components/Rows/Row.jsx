@@ -42,7 +42,7 @@ function Row({ title, fetchUrl }) {
                   )
                 }
               >
-                <HeartStraight className="" size={18} />
+                <HeartStraight className="" size={18} color="white" />
               </button>
             </div>
           ))}

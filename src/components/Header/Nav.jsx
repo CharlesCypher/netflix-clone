@@ -78,10 +78,10 @@ function Nav() {
           <button
             className="nav__btn"
             onClick={() => {
-              navigate(pathname === "/sign-up" ? "/login" : "/sign-up");
+              navigate(pathname === "/login" ? "/sign-up" : "/login");
             }}
           >
-            {pathname === "/sign-up" ? "Login" : "Sign Up"}
+            {pathname === "/login" ? "Sign up" : "Login"}
           </button>
         )}
       </nav>
