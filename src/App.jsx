@@ -17,38 +17,14 @@ function App() {
       <Router>
         <Nav />
         <Routes>
-          <Route exact path="/" element={<Home />} errorElement={<Error />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/sign-up" element={<Signup />} />
-          <Route
-            exact
-            path="/movie/:id"
-            element={
-              <ProtectedRoute>
-                <Movie />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            exact
-            path="/tv/:id"
-            element={
-              <ProtectedRoute>
-                <Series />
-              </ProtectedRoute>
-            }
-          />
-          <Route exact path="/tvshows" element={<TvShows />} />
-          <Route
-            exact
-            path="/my-list"
-            element={
-              <ProtectedRoute>
-                <Lists />
-              </ProtectedRoute>
-            }
-          />
-          <Route exact path="*" element={<Error />} />
+          <Route path="/" element={<Home />} errorElement={<Error />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/sign-up" element={<Signup />} />
+          <Route path="/movie/:id" element={<Movie />} />
+          <Route path="/tv/:id" element={<Series />} />
+          <Route path="/tvshows" element={<TvShows />} />
+          <Route path="/my-list" element={<Lists />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </Router>
     </div>
